@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>阵营九宫格生成</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="generate9.css">
+ 
+    <!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.bootcss.com/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="generate9.js"></script>
+</head>
+
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">阵营九宫格生成</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="nav navbar-nav navbar-left">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">生成 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="https://github.com/jerrylususu/9square">关于</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/jerrylususu">@Nekonull</a></li>
+                    </ul>
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+
+        <table class="table table-bordered">
+                <input type="text" class="form-control" id="title" placeholder="标题" value="XXX的阵营九宫格">
+            <caption>填入阵营九宫格内容</caption>
+            <tbody id="input_table">
+                <tr>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="守序善良" value="守序善良">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="中立善良" value="中立善良">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="混乱善良" value="混乱善良">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="守序中立" value="守序中立">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="绝对中立" value="绝对中立">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="混乱中立" value="混乱中立">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="守序邪恶" value="守序邪恶">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="中立邪恶" value="中立邪恶">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ins">
+                            <input type="text" class="form-control" id="type" placeholder="混乱邪恶" value="混乱邪恶">
+                            <input type="text" class="form-control" id="word" placeholder="文字">
+                            <div class="file-box">
+                                <img class="img-preview"  width="100%" height="100%" />
+                                <input type="file" name="file" id="input_file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                                    onchange="imgPreview(this)">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form class="form-inline" role="form">
+            <input type="number" class="form-control" id="height" placeholder="高" value="900">
+            <input type="number" class="form-control" id="width" placeholder="宽" value="900">
+            <input type="number" class="form-control" id="size0" placeholder="标题字号" value="60">
+            <input type="number" class="form-control" id="size1" placeholder="阵营字号" value="30">
+            <input type="number" class="form-control" id="size2" placeholder="文字字号" value="16">
+            <button type="button" class="btn btn-primary" onclick="final_table();draw()">生成</button>
+            <!-- <button type="button" class="btn btn-primary" onclick="final_table()">DEBUG</button> -->
+        </form>
+    </div>
+
+    <div class="container" id="canvas_container">
+    </div>
+
+    <div class="container" id="img_show_container">
+        <img id="final_img" style="display:block;" />
+    </div>
+
+    <div id="table_show" class="container">
+
+    </div>
+
+</body>
+
+
+</html>
