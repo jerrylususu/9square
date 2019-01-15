@@ -2,12 +2,14 @@
 function final_table() {
 
     // generate table
-    var lasttable = document.getElementById('final_table');
+    var lasttable = document.getElementById('nine-by-nine');
     if (lasttable != null) {
         lasttable.parentNode.removeChild(lasttable);
     }
 
     var data = [];
+
+    var color = ["#fdfdfd","#c2c2c2","#9444bc","#c27c32","#6ca65c","#d3de9a","#9f9c9d","#4259a7","#c11417"];
 
     // get input
     var input_table = document.getElementById('input_table');
@@ -24,49 +26,82 @@ function final_table() {
 
     console.log(data);
 
+    var table_width = document.getElementById('width').value;
+    var table_height = document.getElementById('height').value;
+    var cell_width = table_width/3;
+    var cell_height = table_height/3;
+    var img_height = cell_height*0.7*0.9;
+    var img_width = cell_width*0.9;
+    var type_size = document.getElementById('size1').value;
+    var word_size = document.getElementById('size2').value;
+
+
     //generate new table
     var final_table = document.createElement('table');
-    final_table.style.cssText+="background-color: white;table-layout: fixed; height:"+document.getElementById('width').value+"px; width:"+document.getElementById('height').value+"px;";
-    // final_table.style.width = document.getElementById('width').value;
-    // final_table.style.height = document.getElementById('height').value;
+    final_table.style.cssText+="background-color: black;table-layout: fixed; height:"+table_width+"px; width:"+table_height+"px;";
     final_table.classList.add('table');
     final_table.classList.add('table-bordered');
-    final_table.id = 'final_table';
+    final_table.id = 'nine-by-nine';
     document.getElementById('table_show').appendChild(final_table);
+    var final_table_c = final_table;
+
     final_table = document.createElement('tbody');
-    document.getElementById('final_table').appendChild(final_table);
+    final_table_c.appendChild(final_table);
+
     for (var i = 0; i < 3; i++) {
         var row = document.createElement('tr');
-        // row.width = final_table.width;
-        // row.style.height = final_table.style.height/3;
         final_table.appendChild(row);
         for (var j = 0; j < 3; j++) {
             var cell = document.createElement('td');
             cell.classList.add('cell');
-            var fianl_cell = document.createElement('div');
-            // fianl_cell.width = final_table.width/3;
-            // final_cell.style.height = final_table.style.height/3;
-            // fianl_cell.classList.add("final_cell");
+            row.appendChild(cell);
+
+            var cell_table = document.createElement('table');
+            cell.appendChild(cell_table);
+            var cell_tbody = document.createElement('tbody');
+            cell_table.appendChild(cell_tbody);
+            var cell_tr_img = document.createElement('tr');
+            cell_tr_img.classList.add('cell-img');
+            cell_tr_img.style.cssText+="border: 1px solid "+color[3*i+j]+";";
+            var cell_tr_text = document.createElement('tr');
+            cell_tbody.appendChild(cell_tr_img);
+            cell_tbody.appendChild(cell_tr_text);
+            var cell_tr_img_td = document.createElement('td');
+            var cell_tr_text_td = document.createElement('td');
+            cell_tr_text_td.classList.add("text");
+            cell_tr_img.appendChild(cell_tr_img_td);
+            cell_tr_text.appendChild(cell_tr_text_td);
+
             var imgn = document.createElement('img');
-            imgn.src = data[3*i + j].children[2].children[0].src;
+            var srcimg = data[3*i + j].children[2].children[0];
+            imgn.src = srcimg.src;
+            imgn.classList.add("center-block");
+            imgn.classList.add("img-repsonsive");
+            var img_new_height=0;
+            var img_new_width=0;
+
+                if(srcimg.height/img_height>srcimg.width/img_width){
+                    imgn.style.cssText+="height: "+img_height+"px;"
+                    imgn.style.cssText+="width: "+srcimg.width * img_height / srcimg.height +"px;"
+                } else {
+                    imgn.style.cssText+="width: "+img_width+"px;"
+                    imgn.style.cssText+="height: "+srcimg.height * img_width / srcimg.width +"px;"
+                }
+            
+            
+            cell_tr_img_td.appendChild(imgn);
+
             var typew = document.createElement('div');
             typew.textContent = data[3*i + j].children[0].value;
-            // typew.style.cssText+="vertical-align:bottom;text-align:center;"
             typew.classList.add("type");
+            typew.style.cssText+="font-size: "+type_size+"px;";
+            cell_tr_text_td.appendChild(typew);
+
             var wordw = document.createElement('div');
             wordw.textContent = data[3*i + j].children[1].value;
             wordw.classList.add("word");
-            // wordw.style.cssText+="vertical-align:bottom;text-align:center;"
-            console.log(fianl_cell);
-
-            fianl_cell.classList.add("final_cell");
-
-            fianl_cell.appendChild(imgn);
-            cell.appendChild(fianl_cell);
-            cell.appendChild(typew);
-            cell.appendChild(wordw);
-            
-            row.appendChild(cell);
+            wordw.style.cssText+="font-size: "+word_size+"px;";
+            cell_tr_text_td.appendChild(wordw);
         }
     }
 
@@ -85,7 +120,7 @@ function draw(){
         cont.removeChild(cont.firstChild);
     }
 
-    html2canvas(document.getElementById('final_table'), {
+    html2canvas(document.getElementById('nine-by-nine'), {
         onrendered: function(canvas){
             document.getElementById('img_show_container').appendChild(canvas);
         }
@@ -189,4 +224,5 @@ function imgPreview(fileDom) {
         img.src = e.target.result;
     };
     reader.readAsDataURL(file);
+    img.style.cssText="display: none;"
 }
