@@ -1,4 +1,4 @@
-# 阵营九宫格生成器
+# 阵营九宫格（Alignment Chart）生成器
 
 HTML / JS / CSS 的练手项目...
 
