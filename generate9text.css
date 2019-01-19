@@ -1,0 +1,82 @@
+/* table {
+    border: 1px solid black;
+} */
+
+/* td {
+    border: 0.5px solid #000000;
+} */
+
+#nine-by-nine{
+    table-layout: fixed;
+    width: 900px;
+    height: 900px;
+    border: none;
+}
+
+#nine-by-nine > tbody > tr > td {
+    width: 33%;
+    height: 33%;
+    padding: 1%;
+    border: none;
+}
+
+#nine-by-nine > tbody > tr > td > table {
+    height: 100%;
+    width: 100%;
+}
+
+#nine-by-nine > tbody > tr > td > table > tbody {
+    height: 100%;
+    width: 100%;
+}
+
+#nine-by-nine > tbody > tr > td > table > tbody > .cell-img {
+    height: 70%;
+    color: white;
+    text-align: center;
+}
+
+#nine-by-nine > tbody > tr > td > table > tbody > .cell-img > td {
+    height: 70%;
+}
+
+.text {
+    text-align: center;
+    color: white;
+}
+
+.type {
+    /* font-size: larger; */
+    font-weight: bolder;
+}
+
+.file-box{
+    display: none;
+    border: 1px solid black;
+}
+
+.img_preview{
+    display: none;
+}
+
+#final-div{
+    background-color: black;
+}
+
+#final-title{
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+}
+
+/* .cell-img > img {
+    height: inherit; */
+    /* .img-repsonsive(); */
+    /* .center-block(); */
+/* } */
+
+/* #nine-by-nine > tbody > tr > td > .text{
+    text-align: center;
+}
+
+#nine-by-nine > tbody > tr > td > .text */
