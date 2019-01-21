@@ -49,11 +49,13 @@ function final_table() {
     document.getElementById('table_show').appendChild(final_div);
     
 
-    var final_title = document.createElement('p');
-    final_title.style.cssText+="font-size:"+title_size+"px;"
-    final_title.textContent = title;
-    final_title.id = 'final-title';
-    final_div.appendChild(final_title);
+    if(title.length!=0){
+        var final_title = document.createElement('p');
+        final_title.style.cssText+="font-size:"+title_size+"px;"
+        final_title.textContent = title;
+        final_title.id = 'final-title';
+        final_div.appendChild(final_title);
+    }
 
     if(author.length!=0){
         var final_author = document.createElement('p');
