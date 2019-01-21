@@ -69,6 +69,16 @@
     color: white;
 }
 
+#final-watermark{
+    text-align: center;
+    color:white;
+    font-size: 16px;
+}
+
+#final-author{
+    text-align: right;
+    color:white;
+}
 /* .cell-img > img {
     height: inherit; */
     /* .img-repsonsive(); */

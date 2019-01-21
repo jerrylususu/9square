@@ -38,6 +38,7 @@ function final_table() {
     var word_size = document.getElementById('size2').value;
 
     var title = document.getElementById('title').value;
+    var author = document.getElementById("creator").value;
 
     //generate new table
     var final_div = document.createElement('div');
@@ -54,6 +55,16 @@ function final_table() {
     final_title.id = 'final-title';
     final_div.appendChild(final_title);
 
+    if(author.length!=0){
+        var final_author = document.createElement('p');
+        final_author.style.cssText+="font-size:"+title_size/4+"px;"
+        final_author.style.cssText+="margin-right:"+table_width/100+"px;"
+        final_author.textContent = author;
+        final_author.id = 'final-author';
+        final_div.appendChild(final_author);
+    }
+
+
     var final_table = document.createElement('table');
     final_div.appendChild(final_table);
     final_table.style.cssText+="background-color: black;table-layout: fixed; height:"+table_width+"px; width:"+table_height+"px;";
@@ -63,8 +74,17 @@ function final_table() {
 
     var final_table_c = final_table;
 
+    if(document.getElementById("watermark").checked){
+        var final_watermark = document.createElement("p");
+        final_watermark.id = "final-watermark";
+        final_watermark.style.cssText+="width:"+table_width+"px;";
+        final_watermark.innerHTML="由⑨宫格生成器生成<br>https://bit.ly/9gongge"
+        final_div.appendChild(final_watermark);
+    }
     
 
+
+    
     final_table = document.createElement('tbody');
     final_table_c.appendChild(final_table);
 

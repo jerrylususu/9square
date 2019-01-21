@@ -46,9 +46,10 @@
     </nav>
 
     <div class="container">
-
+        <p>请使用 Chrome 浏览器以获得最佳体验</p>
         <table class="table table-bordered">
                 <input type="text" class="form-control" id="title" placeholder="标题" value="XXX的阵营九宫格">
+                <input type="text" class="form-control" id="creator" placeholder="作者（留空不填）" value="">
             <caption>填入阵营九宫格内容</caption>
             <tbody id="input_table">
                 <tr>
@@ -162,6 +163,11 @@
             <input type="number" class="form-control" id="size0" placeholder="标题字号" value="60">
             <input type="number" class="form-control" id="size1" placeholder="阵营字号" value="30">
             <input type="number" class="form-control" id="size2" placeholder="文字字号" value="45">
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="watermark" checked>水印
+                </label>
+              </div>
             <button type="button" class="btn btn-primary" onclick="final_table();draw()">生成</button>
             <!-- <button type="button" class="btn btn-primary" onclick="final_table()">DEBUG</button> -->
         </form>
