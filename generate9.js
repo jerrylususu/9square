@@ -63,6 +63,15 @@ function final_table() {
 
     var final_table_c = final_table;
 
+    if(document.getElementById("watermark").checked){
+        var final_watermark = document.createElement("p");
+        final_watermark.id = "final-watermark";
+        final_watermark.style.cssText+="width:"+table_width+"px;";
+        final_watermark.textContent="由⑨宫格生成器生成 https://bit.ly/9gongge"
+        final_div.appendChild(final_watermark);
+    }
+   
+
     
 
     final_table = document.createElement('tbody');
@@ -144,7 +153,7 @@ function draw(){
         onrendered: function(canvas){
             document.getElementById('img_show_container').appendChild(canvas);
             var table = document.getElementById('final-div');
-            table.parentNode.removeChild(table);
+            //table.parentNode.removeChild(table);
         }
     });
 

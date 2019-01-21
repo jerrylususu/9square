@@ -62,6 +62,12 @@
     color: white;
 }
 
+#final-watermark{
+    text-align: center;
+    color:white;
+    font-size: 16px;
+}
+
 /* .cell-img > img {
     height: inherit; */
     /* .img-repsonsive(); */
