@@ -164,7 +164,7 @@ function draw(){
         onrendered: function(canvas){
             document.getElementById('img_show_container').appendChild(canvas);
             var table = document.getElementById('final-div');
-            //table.parentNode.removeChild(table);
+            table.parentNode.removeChild(table);
         }
     });
 
