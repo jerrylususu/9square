@@ -68,6 +68,11 @@
     font-size: 16px;
 }
 
+#final-author{
+    text-align: right;
+    color:white;
+}
+
 /* .cell-img > img {
     height: inherit; */
     /* .img-repsonsive(); */
