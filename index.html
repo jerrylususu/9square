@@ -20,7 +20,6 @@
     <nav class="navbar navbar-default">
     
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">
@@ -34,14 +33,11 @@
     
             <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
     
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <!-- <div class="nav navbar-nav navbar-left"> -->
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">生成图片版<span class="sr-only">(current)</span></a></li>
-                        <li><a href="text.html">生成文字版</a></li>
-                        <li><a href="https://github.com/jerrylususu/9square">关于</a></li>
-                    </ul>
-                <!-- </div>/.navbar-collapse -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">生成图片版<span class="sr-only">(current)</span></a></li>
+                    <li><a href="text.html">生成文字版</a></li>
+                    <li><a href="https://github.com/jerrylususu/9square">关于</a></li>
+                </ul>
     
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="https://github.com/jerrylususu">@Nekonull</a></li>
@@ -66,7 +62,7 @@
         <table class="table table-bordered">
                 <input type="text" class="form-control" id="title" placeholder="标题（留空不填）" value="XXX的阵营九宫格">
                 <input type="text" class="form-control" id="creator" placeholder="作者（留空不填）" value="">
-            <caption>填入阵营九宫格内容</caption>
+            <caption>在此填入阵营九宫格内容</caption>
             <tbody id="input_table">
                 <tr>
                     <td>
@@ -174,18 +170,51 @@
         </table>
 
         <form class="form-inline" role="form">
-            <input type="number" class="form-control" id="height" placeholder="高" value="900">
-            <input type="number" class="form-control" id="width" placeholder="宽" value="900">
-            <input type="number" class="form-control" id="size0" placeholder="标题字号" value="60">
-            <input type="number" class="form-control" id="size1" placeholder="阵营字号" value="30">
-            <input type="number" class="form-control" id="size2" placeholder="文字字号" value="16">
-            <div class="checkbox">
-                <label>
-                  <input type="checkbox" id="watermark" checked>水印
-                </label>
-              </div>
-            <button type="button" class="btn btn-primary" onclick="final_table();draw()">生成</button>
-            <!-- <button type="button" class="btn btn-primary" onclick="final_table()">DEBUG</button> -->
+            <div class="row">
+                <strong>基础属性 </strong><br>
+                高
+                <input type="number" class="form-control" id="height" placeholder="高" value="900">
+                宽
+                <input type="number" class="form-control" id="width" placeholder="宽" value="900"> <br>
+        
+                <strong>字号 </strong><br>
+                标题
+                <input type="number" class="form-control" id="size0" placeholder="标题字号" value="60">
+                阵营
+                <input type="number" class="form-control" id="size1" placeholder="阵营字号" value="30">
+                说明文字
+                <input type="number" class="form-control" id="size2" placeholder="文字字号" value="16"> <br>
+        
+                <strong>生成</strong><br>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="watermark" checked>水印
+                    </label>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="final_table();draw()">直接生成</button>
+        
+                <button type="button" id="pro_mode_btn" class="btn btn-default"
+                    onclick="toggle_pro_mode();console.log('here')">动手模式</button> <br><br>
+            
+        
+            <div id="pro_mode_div" style="display:none;">
+        
+                <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        &times;
+                    </button>
+                    <strong>生成原理：</strong>首先根据填入的信息动态生成一个 HTML 表格，通过 CSS 布局确定表格的相关样式，
+                    再利用<code>html2canvas</code>库实现图片的生成。<br>
+                    <strong>为什么叫做动手模式？</strong>在<code>动手模式</code>下，生成 HTML 表格和生成图片这两步被分离了。
+                    因此你可以手动通过 Chrome 的开发者工具或其他你喜欢的工具对生成的 HTML 表格进行更为细致的调整，进而得到符合心意的图片。
+                </div>
+        
+                <button type="button" class="btn btn-default" onclick="final_table()">1. 生成 HTML 表格</button>
+                <button type="button" class="btn btn-default" onclick="draw()">2. 生成图片</button>
+        
+        
+            </div>
+        </div>
         </form>
     </div>
 
