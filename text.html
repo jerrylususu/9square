@@ -50,8 +50,14 @@
             
             </nav>
 
-    <div class="container">
-        <p>请使用 Chrome 浏览器以获得最佳体验</p>
+    <div class="container-fluid">
+            <div class="alert alert-info alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        &times;
+                    </button>
+                    请使用桌面版 Chrome 浏览器以获得最佳体验。
+                </div>
+
         <table class="table table-bordered">
                 <input type="text" class="form-control" id="title" placeholder="标题（留空不填）" value="XXX的阵营九宫格">
                 <input type="text" class="form-control" id="creator" placeholder="作者（留空不填）" value="">
@@ -162,6 +168,7 @@
             </tbody>
         </table>
 
+        <div class="container-fluid">
         <form class="form-inline" role="form">
                 <div class="row">
                     <strong>基础属性 </strong><br>
@@ -208,6 +215,7 @@
                 </div>
             </div>
             </form>
+        </div>
     </div>
 
     <div class="container" id="canvas_container">
