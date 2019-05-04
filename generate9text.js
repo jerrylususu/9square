@@ -80,7 +80,7 @@ function final_table() {
         var final_watermark = document.createElement("p");
         final_watermark.id = "final-watermark";
         final_watermark.style.cssText+="width:"+table_width+"px;";
-        final_watermark.innerHTML="由⑨宫格生成器生成<br>https://bit.ly/9gongge"
+        final_watermark.innerHTML="由⑨宫格生成器生成<br>https://t.tl/9gongge"
         final_div.appendChild(final_watermark);
     }
     
