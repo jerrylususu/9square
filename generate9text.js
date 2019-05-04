@@ -1,4 +1,9 @@
 
+function toggle_pro_mode(){
+    $("#pro_mode_div").fadeToggle();
+}
+
+
 function final_table() {
 
     // generate table
