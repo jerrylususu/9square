@@ -242,5 +242,41 @@ function imgPreview(fileDom) {
         img.src = e.target.result;
     };
     reader.readAsDataURL(file);
-    // img.style.cssText="display: none;"
+    img.style.cssText="display: block;"
+}
+
+// 支持直接粘贴图片
+function handlePaste(event) {
+    var items = (event.clipboardData || event.originalEvent.clipboardData).items;
+    var targetElement = event.target;
+    if (targetElement.tagName === 'INPUT') {
+        targetElement = targetElement.parentElement;
+    }
+    for (var index in items) {
+        var item = items[index];
+        if (item.kind === 'file') {
+            var blob = item.getAsFile();
+            var reader = new FileReader();
+            reader.onload = function(event){
+                var imgElement = targetElement.querySelector('.img-preview');
+                
+                console.log("imgElement", imgElement);
+                if (imgElement) {
+                    imgElement.src = event.target.result;
+                }
+            }; 
+            reader.readAsDataURL(blob);
+        }
+    }
+    targetElement.querySelector('.img-preview').style.cssText="display: block;"
+}
+
+function clearImage(event) {
+    var targetElement = event.target;
+    if (targetElement.tagName === 'BUTTON') {
+        targetElement = targetElement.parentElement;
+    }
+    targetElement.querySelector('.img-preview').src = '';
+    targetElement.querySelector('.img-preview').style.cssText="display: none;"
+    targetElement.querySelector('#input_file').value = '';
 }
